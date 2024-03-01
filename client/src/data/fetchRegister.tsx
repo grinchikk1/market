@@ -3,7 +3,7 @@ import axios from "axios";
 
 const baseApiUrl = "/api";
 
-// Створити замовлення
+// Реєстрація користувача
 export const createCustomer = createAsyncThunk(
   "customer/createCustomer",
   async (newCustomer) => {

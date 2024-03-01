@@ -7,3 +7,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background-color: #fff;
+  min-width: 320px;
+  height: 100%;
+}
