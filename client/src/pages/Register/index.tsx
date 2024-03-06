@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Switch from "../../components/Switch";
-import Buyer from "./Buyer";
-import Supplier from "./Supplier";
+import Buyer from "../../components/Registration/Buyer";
+import Supplier from "../../components/Registration/Supplier";
 
 export default function RegisterPage() {
   const [isChecked, setIsChecked] = useState(false);

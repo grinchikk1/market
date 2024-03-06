@@ -4,32 +4,42 @@ import { useNavigate } from "react-router-dom";
 export default function Supplier() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setLogin] = useState("");
+  const [confirm_password, setConfirmPassword] = useState("");
 
   const navigate = useNavigate();
 
-  const handleRegister = async (e: { preventDefault: () => void }) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log(email, password);
     setEmail("");
     setPassword("");
-
-    setTimeout(() => {
-      navigate("/");
-    }, 2000);
+    setConfirmPassword("");
+    setLogin("");
   };
   return (
     <form
       onSubmit={handleRegister}
-      className="flex flex-col justify-center items-center w-3/4 max-w-xl h-60 p-4 gap-4 border-2 border-gray-300 rounded-lg"
+      className="flex flex-col justify-center items-center w-3/4 max-w-96 p-7 gap-4 border-2 border-gray-300 rounded-lg overflow-hidden"
     >
       <h2 className="text-center">Реєстрація постачальника</h2>
-
+      <input
+        type="text"
+        placeholder="Імʼя"
+        value={username}
+        required
+        autoComplete="given-name"
+        className="border-b border-gray-300 w-full"
+        onChange={(event: { target: { value: SetStateAction<string> } }) =>
+          setLogin(event.target.value)
+        }
+      />
       <input
         type="email"
         placeholder="Електронна пошта"
         value={email}
         autoComplete="email"
-        className="border-b border-gray-300"
+        className="w-full border-b border-gray-300"
         onChange={(event: { target: { value: SetStateAction<string> } }) =>
           setEmail(event.target.value)
         }
@@ -38,15 +48,26 @@ export default function Supplier() {
         type="password"
         placeholder="Пароль"
         value={password}
-        autoComplete="current-password"
-        className="border-b border-gray-300"
+        autoComplete="new-password"
+        className="w-full border-b border-gray-300"
         onChange={(event: { target: { value: SetStateAction<string> } }) =>
           setPassword(event.target.value)
         }
       />
+      <input
+        type="password"
+        placeholder="Повторити пароль"
+        value={confirm_password}
+        required
+        autoComplete="new-password"
+        className="border-b border-gray-300 w-full"
+        onChange={(event: { target: { value: SetStateAction<string> } }) =>
+          setConfirmPassword(event.target.value)
+        }
+      />
       <button
         type="submit"
-        className="border border-gray-300 rounded-lg px-3 py-1 hover:bg-slate-300"
+        className="w-full border border-gray-300 rounded-lg px-3 py-1 hover:bg-slate-300"
       >
         Зареєструватись
       </button>

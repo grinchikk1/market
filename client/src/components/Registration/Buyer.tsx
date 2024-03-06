@@ -1,29 +1,27 @@
 import { SetStateAction, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { useSelector, useDispatch } from "react-redux";
 // import { createCustomer } from "../../redux/slice/RegisterSlice";
+// import { useAppDispatch } from "../../redux/store/hook";
 
 export default function Buyer() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setLogin] = useState("");
+  const [confirm_password, setConfirmPassword] = useState("");
 
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const customer = useSelector((state) => state);
+  // const dispatch = useAppDispatch();
 
-  // console.log(customer);
-
-  const handleRegister = async (e: { preventDefault: () => void }) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log(email, password);
-    // dispatch(createCustomer({ email, password }));
+    // dispatch(createCustomer({ email, password, confirm_password, username }));
     setEmail("");
     setPassword("");
-
-    setTimeout(() => {
-      navigate("/");
-    }, 2000);
+    setConfirmPassword("");
+    setLogin("");
   };
+
   return (
     <form
       onSubmit={handleRegister}
@@ -47,6 +45,17 @@ export default function Buyer() {
       </div>
       <span className=" text-xs">або</span>
       <input
+        type="text"
+        placeholder="Імʼя"
+        value={username}
+        required
+        autoComplete="given-name"
+        className="border-b border-gray-300 w-full"
+        onChange={(event: { target: { value: SetStateAction<string> } }) =>
+          setLogin(event.target.value)
+        }
+      />
+      <input
         type="email"
         placeholder="Електронна пошта"
         value={email}
@@ -62,10 +71,21 @@ export default function Buyer() {
         placeholder="Пароль"
         value={password}
         required
-        autoComplete="current-password"
+        autoComplete="new-password"
         className="border-b border-gray-300 w-full"
         onChange={(event: { target: { value: SetStateAction<string> } }) =>
           setPassword(event.target.value)
+        }
+      />
+      <input
+        type="password"
+        placeholder="Повторити пароль"
+        value={confirm_password}
+        required
+        autoComplete="new-password"
+        className="border-b border-gray-300 w-full"
+        onChange={(event: { target: { value: SetStateAction<string> } }) =>
+          setConfirmPassword(event.target.value)
         }
       />
       <div className="text-xs">

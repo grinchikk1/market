@@ -4,7 +4,7 @@ interface SwitchProps {
 }
 
 function Switch(props: SwitchProps) {
-  const toggleClass = "transform translate-x-5";
+  const toggleClass = "transform translate-x-5 md:translate-x-6";
 
   return (
     <div
