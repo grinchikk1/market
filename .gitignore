@@ -1,2 +1,6 @@
 /env
 /req.py
+__pycache__/
+db.sqlite3
+migrations/*
+!migrations/__init__.py
