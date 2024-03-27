@@ -16,7 +16,7 @@ export default function AppBar() {
   };
 
   return (
-    <div className="">
+    <div className="w-full">
       <nav className="h-16 bg-gray-300 flex items-center justify-end px-4 gap-3">
         <button
           className="border border-transparent rounded-lg px-3 py-1 hover:border hover:border-gray-500"

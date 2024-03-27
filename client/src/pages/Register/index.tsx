@@ -11,7 +11,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="relative pt-16 flex justify-center items-center ">
+    <div className="relative flex items-center justify-center pt-10 ">
       <Switch value={isChecked} onChange={handleChange} />
       {!isChecked ? <Buyer /> : <Supplier />}
     </div>
